@@ -1,3 +1,149 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* styles/globals.css */
+
+/* Root Variables */
+:root {
+    --main-color: #f1e213;
+    --white: #FFF;
+    --text-color: #FFF;
+    --bg-color: #000; /* Changed to black */
+}
+
+/* Global Resets and Styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    transition: all .2s linear;
+    text-decoration: none;
+}
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    color: var(--main-color);
+}
+
+html {
+    font-size: 63.5%;
+}
+
+body {
+    background-color: var(--bg-color); /* Background color set to black */
+}
+
+section {
+    padding: 5rem 5%;
+}
+
+/* Text Animation */
+.text-animation {
+    font-size: 2rem;
+    color: var(--text-color);
+    min-width: 28rem;
+    font-weight: 600;
+}
+
+.text-animation span {
+    position: relative;
+}
+
+.text-animation span::before {
+    content: "washroom cleaner";
+    color: var(--main-color);
+    animation: words 20s infinite;
+}
+
+.text-animation span::after {
+    content: "";
+    background-color: var(--bg-color);
+    position: absolute;
+    width: calc(100% + 8px);
+    height: 100%;
+    border-left: 3px solid var(--bg-color);
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid var(--main-color);
+    }
+}
+
+@keyframes words {
+    0%, 20% {
+        content: "CAD Services";
+    }
+    21%, 40% {
+        content: "2D Drafting";
+    }
+    41%, 60% {
+        content: "CAD Services";
+    }
+    61%, 80% {
+        content: "2D Drafting";
+    }
+    81%, 100% {
+        content: "CAD Services";
+    }
+}
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 8px);
+    }
+}
+
+@media(max-width:990px) {
+    html {
+        font-size: 55.5%;
+    }
+
+    .home {
+        flex-flow: column-reverse;
+        padding: 8rem 0;
+        padding-top: 15rem;
+    }
+}
+
+@media(max-width:700px) {
+    html {
+        font-size: 50.5%;
+    }
+
+    .home img {
+        height: 35rem;
+        width: 35rem;
+        margin-top: 2rem;
+    }
+
+    .home {
+        padding: 8rem 0;
+    }
+
+    section {
+        padding: 1rem;
+    }
+}
+
+@media(max-width:450px) {
+    .home .content p {
+        width: 35rem;
+    }
+}
